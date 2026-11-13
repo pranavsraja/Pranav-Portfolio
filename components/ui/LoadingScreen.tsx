@@ -7,17 +7,15 @@ export const LoadingScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const handleComplete = () => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 250);
-    };
+    // Hide as soon as the page has finished loading — no artificial delay.
+    const handleComplete = () => setIsLoading(false);
 
     if (document.readyState === "complete") {
       handleComplete();
     } else {
       window.addEventListener("load", handleComplete);
-      const fallback = setTimeout(handleComplete, 1200);
+      // Safety net so a slow third-party asset never traps the user on the loader.
+      const fallback = setTimeout(handleComplete, 2500);
       return () => {
         window.removeEventListener("load", handleComplete);
         clearTimeout(fallback);
@@ -35,15 +33,15 @@ export const LoadingScreen = () => {
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#07080a]"
         >
           <div className="flex flex-col items-center gap-4">
-            <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-slate-400">
-              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse shadow-[0_0_8px_#38bdf8]" />
-              <span>PSR · Data & AI</span>
+            <div className="flex items-center gap-2 text-sm font-semibold tracking-tight text-zinc-100">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+              <span>Pranav Sunil Raja</span>
             </div>
 
-            {/* Precision hairline loader */}
-            <div className="w-28 h-[1.5px] bg-slate-800 overflow-hidden relative rounded-full">
+            {/* Hairline loader */}
+            <div className="w-28 h-[2px] bg-zinc-800 overflow-hidden relative rounded-full">
               <motion.div
-                className="h-full bg-sky-400 w-14 absolute rounded-full shadow-[0_0_8px_#38bdf8]"
+                className="h-full bg-accent w-14 absolute rounded-full"
                 animate={{ x: [-56, 112] }}
                 transition={{
                   repeat: Infinity,

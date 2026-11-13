@@ -46,7 +46,7 @@ const TechTicker = () => {
                 className="text-xs font-mono text-zinc-400 hover:text-zinc-200 transition-colors uppercase tracking-widest cursor-default flex items-center gap-6"
               >
                 <span>{tech}</span>
-                <span className="text-zinc-700">/</span>
+                <span className="text-accent/40">/</span>
               </span>
             ))}
           </motion.div>

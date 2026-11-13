@@ -23,11 +23,11 @@ const Contact = () => {
         viewport={{ once: true }}
         className="text-center mb-10"
       >
-        <span className="text-xs font-mono uppercase tracking-[0.2em] text-zinc-500 mb-2 block font-medium">
+        <span className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-2 block font-medium">
           Contact
         </span>
         <h2 className="text-4xl sm:text-5xl font-bold tracking-tight font-[var(--font-outfit)] text-zinc-100">
-          Hit Me Up
+          Hit Me <span className="text-accent">Up</span>
         </h2>
         <p className="text-zinc-400 mt-3 max-w-md mx-auto text-sm sm:text-base leading-relaxed">
           Open to discussions on database internals, distributed data architectures, and applied AI systems.
@@ -49,7 +49,7 @@ const Contact = () => {
           <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
             <a
               href={`mailto:${email}`}
-              className="inline-flex items-center gap-2 bg-white text-zinc-950 font-medium py-2.5 px-6 rounded-full hover:bg-zinc-200 transition-colors text-sm group"
+              className="inline-flex items-center gap-2 bg-accent text-black font-semibold py-2.5 px-6 rounded-full hover:bg-accent-hover transition-colors text-sm group"
             >
               <Mail className="w-4 h-4" />
               <span>Send Email</span>
@@ -80,7 +80,7 @@ const Contact = () => {
               href="https://github.com/pranavsraja"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-white transition-colors"
+              className="card-tag card-link flex items-center gap-1.5"
             >
               <Github className="w-3.5 h-3.5" />
               <span>GitHub</span>
@@ -90,7 +90,7 @@ const Contact = () => {
               href="https://www.linkedin.com/in/pranavsraja/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-white transition-colors"
+              className="card-tag card-link flex items-center gap-1.5"
             >
               <Linkedin className="w-3.5 h-3.5" />
               <span>LinkedIn</span>
@@ -99,7 +99,7 @@ const Contact = () => {
         </div>
       </div>
 
-      <footer className="w-full text-center text-zinc-600 mt-20 text-xs font-mono">
+      <footer className="w-full text-center text-zinc-400 mt-20 text-xs font-mono">
         &copy; {new Date().getFullYear()} Pranav Sunil Raja
       </footer>
     </section>

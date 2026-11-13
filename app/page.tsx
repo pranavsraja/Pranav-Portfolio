@@ -27,31 +27,22 @@ export default function Home() {
         <section id="home">
           <Hero />
         </section>
+        {/* Each component renders its own <section id="..."> for nav anchors */}
         <RevealSection>
-          <section id="skills">
-            <Skills />
-          </section>
+          <Experience />
         </RevealSection>
         <RevealSection>
-          <section id="experience">
-            <Experience />
-          </section>
+          <Skills />
         </RevealSection>
         <RevealSection>
-          <section id="projects">
-            <Projects />
-          </section>
+          <Projects />
         </RevealSection>
         <RevealSection>
-          <section id="education">
-            <Education />
-          </section>
+          <Education />
         </RevealSection>
         <TechTicker />
         <RevealSection>
-          <section id="contact">
-            <Contact />
-          </section>
+          <Contact />
         </RevealSection>
       </div>
     </main>

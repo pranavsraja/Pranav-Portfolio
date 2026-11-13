@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
-import NeuralBackground from "@/components/NeuralBackground";
+import BackgroundLoader from "@/components/BackgroundLoader";
+import BackToTop from "@/components/BackToTop";
+import MotionProvider from "@/components/MotionProvider";
 import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/components/SmoothScroll";
 import LoadingScreen from "@/components/ui/LoadingScreen";
@@ -14,10 +16,18 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Pranav Sunil Raja | Database Engineer @ SymphonyAI",
+  // Makes the generated preview image / icon URLs absolute when shared.
+  metadataBase: new URL("https://pranavsraja.com"),
+  title: "Pranav Sunil Raja — Data & AI",
   description:
-    "Database Engineer Apprentice at SymphonyAI. Building enterprise database infrastructure, distributed data pipelines, and machine learning systems.",
+    "MSc Data Science graduate working across data science, analytics, data engineering and ML/AI. Currently at SymphonyAI; industry dissertation at SAGE Publishing, UK.",
   keywords: [
+    "Data Scientist",
+    "Data Analyst",
+    "Data Engineer",
+    "Machine Learning Engineer",
+    "AI Engineer",
+    "Database Engineer",
     "SymphonyAI",
     "Database Engineering",
     "Data Engineering",
@@ -33,17 +43,17 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Pranav Sunil Raja" }],
   openGraph: {
-    title: "Pranav Sunil Raja | Database Engineer @ SymphonyAI",
+    title: "Pranav Sunil Raja — Data & AI",
     description:
-      "Database Engineer Apprentice at SymphonyAI. Building enterprise database infrastructure, distributed data pipelines, and machine learning systems.",
+      "MSc Data Science graduate working across data science, analytics, data engineering and ML/AI. Currently at SymphonyAI; industry dissertation at SAGE Publishing, UK.",
     type: "website",
     url: "https://pranavsraja.com",
     siteName: "Pranav Sunil Raja Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pranav Sunil Raja | Database Engineer @ SymphonyAI",
-    description: "Database Engineer Apprentice at SymphonyAI. Building enterprise data & AI systems.",
+    title: "Pranav Sunil Raja — Data & AI",
+    description: "Data science, analytics, data engineering and ML/AI. Currently at SymphonyAI.",
   },
 };
 
@@ -57,12 +67,15 @@ export default function RootLayout({
       <body
         className={`${inter.className} ${outfit.variable} overflow-y-scroll overflow-x-hidden bg-[#07080a] text-[#f8fafc]`}
       >
-        <LoadingScreen />
-        <SmoothScroll>
-          <Navbar />
-          <NeuralBackground />
-          <div className="z-10 relative">{children}</div>
-        </SmoothScroll>
+        <MotionProvider>
+          <LoadingScreen />
+          <SmoothScroll>
+            <Navbar />
+            <BackgroundLoader />
+            <div className="z-10 relative">{children}</div>
+            <BackToTop />
+          </SmoothScroll>
+        </MotionProvider>
       </body>
     </html>
   );

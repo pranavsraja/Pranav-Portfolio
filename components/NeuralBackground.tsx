@@ -4,6 +4,18 @@ import React, { useRef, useMemo, Suspense } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
+/**
+ * Small seeded PRNG (mulberry32). Gives the same "random" layout on every
+ * render, which keeps rendering pure (Math.random() in render is flagged).
+ */
+const seededRandom = (seed: number) => () => {
+  seed |= 0;
+  seed = (seed + 0x6d2b79f5) | 0;
+  let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+  t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+  return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+};
+
 // --- 3D Subtle Architecture Data Sphere ---
 const DataSphere = () => {
   const pointsRef = useRef<THREE.Points>(null);
@@ -16,12 +28,13 @@ const DataSphere = () => {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
 
-    // Subtle, calm architectural tones: silver, slate, muted graphite
-    const c1 = new THREE.Color("#e2e8f0");
-    const c2 = new THREE.Color("#94a3b8");
-    const c3 = new THREE.Color("#64748b");
+    // Subtle, calm neutral tones: silver, grey, graphite
+    const c1 = new THREE.Color("#e4e4e7");
+    const c2 = new THREE.Color("#a1a1aa");
+    const c3 = new THREE.Color("#71717a");
 
     const radius = 2.4;
+    const random = seededRandom(1337);
 
     for (let i = 0; i < count; i++) {
       const phi = Math.acos(1 - (2 * (i + 0.5)) / count);
@@ -35,7 +48,7 @@ const DataSphere = () => {
       pos[i * 3 + 1] = y;
       pos[i * 3 + 2] = z;
 
-      const rand = Math.random();
+      const rand = random();
       const chosenColor = rand > 0.6 ? c1 : rand > 0.3 ? c2 : c3;
       col[i * 3] = chosenColor.r;
       col[i * 3 + 1] = chosenColor.g;
@@ -101,11 +114,11 @@ const DataSphere = () => {
       </points>
 
       <primitive
-        object={new THREE.Line(ringGeo1, new THREE.LineBasicMaterial({ color: "#94a3b8", transparent: true, opacity: 0.04 }))}
+        object={new THREE.Line(ringGeo1, new THREE.LineBasicMaterial({ color: "#a1a1aa", transparent: true, opacity: 0.04 }))}
         ref={ringRef1}
       />
       <primitive
-        object={new THREE.Line(ringGeo2, new THREE.LineBasicMaterial({ color: "#64748b", transparent: true, opacity: 0.03 }))}
+        object={new THREE.Line(ringGeo2, new THREE.LineBasicMaterial({ color: "#71717a", transparent: true, opacity: 0.03 }))}
         ref={ringRef2}
       />
     </group>
@@ -121,15 +134,16 @@ const DataDust = () => {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
 
-    const cSlate = new THREE.Color("#94a3b8");
-    const cDim = new THREE.Color("#475569");
+    const cGrey = new THREE.Color("#a1a1aa");
+    const cDim = new THREE.Color("#52525b");
+    const random = seededRandom(4242);
 
     for (let i = 0; i < count; i++) {
-      pos[i * 3] = (Math.random() - 0.5) * 16;
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 14;
-      pos[i * 3 + 2] = (Math.random() - 0.5) * 8 - 1;
+      pos[i * 3] = (random() - 0.5) * 16;
+      pos[i * 3 + 1] = (random() - 0.5) * 14;
+      pos[i * 3 + 2] = (random() - 0.5) * 8 - 1;
 
-      const mixed = Math.random() > 0.5 ? cSlate : cDim;
+      const mixed = random() > 0.5 ? cGrey : cDim;
       col[i * 3] = mixed.r;
       col[i * 3 + 1] = mixed.g;
       col[i * 3 + 2] = mixed.b;
