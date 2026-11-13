@@ -14,12 +14,12 @@ interface EducationItem {
 
 const education: EducationItem[] = [
   {
-    degree: "MSc. Data Science",
-    institution: "Newcastle University, United Kingdom",
+    degree: "MSc. Data Science (Specialisation in AI)",
+    institution: "Newcastle University, Newcastle upon Tyne, UK",
     year: "2024 – 2025",
     grade: "Merit",
     focus: ["Machine Learning", "NLP", "Data Engineering", "AI Systems", "Statistics"],
-    desc: "Graduated with Merit. Completed industry dissertation at SAGE Publishing on large-scale OCR benchmarking.",
+    desc: "Graduated with Merit. Completed industry dissertation at SAGE on large-scale OCR benchmarking.",
   },
   {
     degree: "B.E. Electronics & Communication Engineering",

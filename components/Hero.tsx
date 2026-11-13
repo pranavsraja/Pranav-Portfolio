@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Github, GraduationCap, Linkedin, Mail } from "lucide-react";
 import RoleRotator, { type RoleStyle } from "./RoleRotator";
 
 /** Role line style — "slide" | "fade" | "static". Change here to try the alternatives. */
@@ -65,11 +65,23 @@ const Hero = () => {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="text-base sm:text-lg text-zinc-400 mb-10 max-w-[580px] leading-relaxed font-normal"
+            className="text-base sm:text-lg text-zinc-400 mb-5 max-w-[580px] leading-relaxed font-normal"
           >
-            <span className="text-zinc-100 font-semibold">MSc Data Science</span> graduate with an industry
-            dissertation at <span className="text-zinc-100 font-semibold">SAGE Publishing, UK</span>.
-            I work across data engineering, analytics, and machine learning.
+            Most people avoid messy data. I go looking for it, then turn it into pipelines, insights
+            and models people can rely on.
+          </motion.p>
+
+          {/* Qualification — its own quiet line under the tagline */}
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mb-10 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-zinc-400"
+          >
+            <GraduationCap className="w-4 h-4 text-accent shrink-0" aria-hidden />
+            <span className="text-zinc-200 font-medium">MSc Data Science (Specialisation in AI)</span>
+            <span className="hidden sm:inline text-zinc-600" aria-hidden>·</span>
+            <span>Newcastle University</span>
           </motion.p>
 
           {/* Tactile, Minimal Buttons (No glowing neon halos) */}

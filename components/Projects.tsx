@@ -50,13 +50,13 @@ const projects: ProjectProps[] = [
     featured: true,
   },
   {
-    title: "OCR Benchmarking System for SAGE Publishing",
+    title: "OCR Benchmarking System for SAGE",
     category: "Data & ML Systems",
     groups: ["ml"],
     description: "Large-scale OCR evaluation framework benchmarking TrOCR, Tesseract, EasyOCR, Donut & LayoutLMv3 across financial and handwritten documents, optimizing accuracy, latency, and cloud deployment cost.",
     technologies: ["TrOCR", "LayoutLMv3", "PyTorch", "OCR"],
     github: "",
-    note: "Industry Project · SAGE Publishing",
+    note: "Industry Project · SAGE",
     featured: true,
   },
   {

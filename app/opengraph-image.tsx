@@ -41,7 +41,7 @@ export default function OpengraphImage() {
 
         {/* Footer */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 26, color: "#a1a1aa" }}>
-          <div style={{ display: "flex" }}>MSc Data Science · SAGE Publishing, UK</div>
+          <div style={{ display: "flex" }}>MSc Data Science (AI) · Newcastle University, UK</div>
           <div style={{ display: "flex", width: 120, height: 8, borderRadius: 999, background: YELLOW }} />
         </div>
       </div>

@@ -45,7 +45,7 @@ const experiences: ExperienceItem[] = [
   },
   {
     title: "Data Science Intern",
-    company: "SAGE Publishing",
+    company: "SAGE",
     period: "Mar 2025 – Aug 2025",
     location: "United Kingdom",
     type: "Dissertation Project",

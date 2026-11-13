@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://pranavsraja.com"),
   title: "Pranav Sunil Raja — Data & AI",
   description:
-    "MSc Data Science graduate working across data science, analytics, data engineering and ML/AI. Currently at SymphonyAI; industry dissertation at SAGE Publishing, UK.",
+    "MSc Data Science graduate working across data science, analytics, data engineering and ML/AI. Currently at SymphonyAI; industry dissertation at SAGE.",
   keywords: [
     "Data Scientist",
     "Data Analyst",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Pranav Sunil Raja — Data & AI",
     description:
-      "MSc Data Science graduate working across data science, analytics, data engineering and ML/AI. Currently at SymphonyAI; industry dissertation at SAGE Publishing, UK.",
+      "MSc Data Science graduate working across data science, analytics, data engineering and ML/AI. Currently at SymphonyAI; industry dissertation at SAGE.",
     type: "website",
     url: "https://pranavsraja.com",
     siteName: "Pranav Sunil Raja Portfolio",
