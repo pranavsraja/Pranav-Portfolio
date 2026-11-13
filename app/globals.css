@@ -16,7 +16,9 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  /* clip (not hidden): stops sideways overflow without turning <body> into a
+     second scroll container, which made scrolling feel sticky */
+  overflow-x: clip;
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-outfit), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -61,6 +63,11 @@ body {
 .card-link:hover {
   color: var(--accent-yellow);
   border-bottom-color: var(--accent-yellow);
+}
+
+/* No scrolling (visible or hidden) while the loading screen covers the page */
+html:has(.site-loader) {
+  overflow: hidden;
 }
 
 /* Section jumps land with room for the floating nav bar above the heading */

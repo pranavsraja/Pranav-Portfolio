@@ -22,7 +22,7 @@ const RevealSection = ({ children }: { children: React.ReactNode }) => (
 
 export default function Home() {
   return (
-    <main className="h-full w-full overflow-x-hidden">
+    <main className="h-full w-full overflow-x-clip">
       <div className="flex flex-col gap-0">
         <section id="home">
           <Hero />

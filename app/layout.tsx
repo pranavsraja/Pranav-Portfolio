@@ -65,7 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} ${outfit.variable} overflow-y-scroll overflow-x-hidden bg-[#07080a] text-[#f8fafc]`}
+        className={`${inter.className} ${outfit.variable} bg-[#07080a] text-[#f8fafc]`}
       >
         <MotionProvider>
           <LoadingScreen />
